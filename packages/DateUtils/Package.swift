@@ -22,6 +22,10 @@ let package = Package(
             name: "DateUtils",
             dependencies: [],
             path: ".",
+            exclude: ["Tests"],
             publicHeadersPath: "Sources/DateUtils"),
+        .testTarget(
+            name: "DateUtilsTests",
+            dependencies: ["DateUtils"]),
     ]
 )

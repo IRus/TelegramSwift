@@ -630,12 +630,12 @@ static inline NSString *dialogTimeFormat()
             if (dateHas12hFormat())
             {
                 if (timeinfo.tm_hour < 12)
-                    return [[NSString alloc] initWithFormat:@"%@, %d:%02d AM", dayDiff == 0 ? value_today : value_tomorrow, timeinfo.tm_hour == 0 ? 12 : timeinfo.tm_hour, timeinfo.tm_min];
+                    return [[NSString alloc] initWithFormat:@"%@, %d:%02d AM", dayDiff == 0 ? value_today() : value_tomorrow(), timeinfo.tm_hour == 0 ? 12 : timeinfo.tm_hour, timeinfo.tm_min];
                 else
-                    return [[NSString alloc] initWithFormat:@"%@, %d:%02d PM", dayDiff == 0 ? value_today : value_tomorrow, (timeinfo.tm_hour - 12 == 0) ? 12 : (timeinfo.tm_hour - 12), timeinfo.tm_min];
+                    return [[NSString alloc] initWithFormat:@"%@, %d:%02d PM", dayDiff == 0 ? value_today() : value_tomorrow(), (timeinfo.tm_hour - 12 == 0) ? 12 : (timeinfo.tm_hour - 12), timeinfo.tm_min];
             }
             else
-                return [[NSString alloc] initWithFormat:@"%@, %02d:%02d", dayDiff == 0 ? value_today : value_tomorrow, timeinfo.tm_hour, timeinfo.tm_min];
+                return [[NSString alloc] initWithFormat:@"%@, %02d:%02d", dayDiff == 0 ? value_today() : value_tomorrow(), timeinfo.tm_hour, timeinfo.tm_min];
         }
         else
         {
